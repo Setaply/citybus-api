@@ -1,14 +1,17 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+// Imports //
+const express = require("express");
 
-// GET /test endpoint
-app.get('/test', (req, res) => {
-  console.log('GET request received on /test!');
-  res.send('It works on /test!');
-});
+// Vars // 
+const api = express();
 
-// Start the server on all interfaces
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server running at http://0.0.0.0:${port}/test`);
+// Init //
+//api.use(express.json());
+
+// Listeners //
+api.get('/gps', (req, res) => {
+  res.status(200);
+  console.log("YESSSSSIIRRR")
+})
+let server = api.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
