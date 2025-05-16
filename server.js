@@ -8,7 +8,7 @@ app.get('/test', (req, res) => {
   res.send('It works on /test!');
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}/test`);
+// Start the server on all interfaces
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server running at http://0.0.0.0:${port}/test`);
 });
