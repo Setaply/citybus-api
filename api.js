@@ -4,26 +4,37 @@ const express = require("express");
 // Vars // 
 const api = express();
 
+// Data //
+let longitude = 0;
+let latitude = 0;
+
 // Init //
 api.use(express.json());
 
-
 // Handlers
 async function handler_getGPS(req, res) {
-  console.log("get request gotten")
+  let gpsData = {
+    longitude : longitude,
+    latitude : latitude
+  }
+
+  res.json(gpsData)
 }
 
 async function handler_postGPS(req, res) {
   let body = req.body || {}
   console.log(body)
-  //if (body.long == null || body.key != apiKey) return res.status(400).json({ error: "Invalid request" });
-  //body.domain = htmlquery.ensureHttps(body.domain)
-
   console.log("post request gotten")
 
+  if (typeof body.longitude === 'number') {
+    longitude = body.longitude
+  }
 
-  //// Return
-  //res.json(result);
+  if (typeof body.latitude === 'number') {
+    latitude = body.latitude
+  }
+
+  res.json({ status: "GPS data updated" })
 }
 
 // Listeners //
