@@ -10,9 +10,6 @@ api.use(express.json());
 
 // Handlers
 async function handler_getGPS(req, res) {
-  if (req) return res.status(400).json({ error: "Invalid request" });
-  body.domain = htmlquery.ensureHttps(body.domain)
- 
   console.log("get request gotten")
 }
 
