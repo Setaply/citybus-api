@@ -13,6 +13,7 @@ api.use(express.json());
 
 // Handlers
 async function handler_getGPS(req, res) {
+  console.log("get request gotten")
   let gpsData = {
     longitude : longitude,
     latitude : latitude
