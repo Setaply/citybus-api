@@ -10,7 +10,7 @@ let latitude = 0;
 api.use(express.json());
 
 api.get('/get-gps', async (req, res) => {
-  console.log("POST Request")
+  console.log("GET Request")
   console.log({ longitude, latitude })
   res.json({ longitude, latitude });
 });
