@@ -11,10 +11,12 @@ import { Icon, Style } from 'ol/style';
 import { getDistance } from 'ol/sphere';
 
 const centerCoordinates = fromLonLat([9.76727, 50.67966]);
+const getGPSEndpoint = "https://setaply.app.n8n.cloud/webhook/94bd2ffe-5099-4477-b813-c88b3e6b5579";
+//http://217.154.87.99:3000/get-gps
 
 // Bus marker
 const busMarker = new Feature({
-  geometry: new Point(centerCoordinates)
+  geometry: new Point(fromLonLat([0, 0]))
 });
 busMarker.setStyle(
   new Style({
@@ -27,7 +29,7 @@ busMarker.setStyle(
 
 // User marker
 const userMarker = new Feature({
-  geometry: new Point(centerCoordinates)  // Default initial position same as center
+  geometry: new Point(fromLonLat([0, 0]))  // Default initial position same as center
 });
 userMarker.setStyle(
   new Style({
@@ -63,7 +65,7 @@ const map = new Map({
 
 async function getGPSData() {
   try {
-    const response = await fetch('http://217.154.87.99:3000/get-gps');
+    const response = await fetch(getGPSEndpoint);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -147,7 +149,6 @@ function updateNearestBusDistance() {
   });
 }
 
-changeBusPos(0, 0)
 startWatchingUserPosition();
 cyclePos();
 setInterval(updateNearestBusDistance, 1000);
