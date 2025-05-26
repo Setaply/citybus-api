@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://openlayers.org/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CityBus GPS Map</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1 id="title">Hünfeld Citybus GPS</h1>
+    <div id="map"></div>
+
+    <div id="ui">
+      <div>
+        <label for="nearestBus">Nearest Bus:</label>
+        <span id="nearestBus">-- meters</span>
+      </div>
+      <div>
+        <label for="busAmount">Bus Amount:</label>
+        <span id="busAmount">1</span>
+      </div>
+      <!-- Add more UI controls here as needed -->
+    </div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
