@@ -19,22 +19,24 @@ async function handler_getGPS(req, res) {
   }
 
   res.json(gpsData)
-}
+}   
 
 async function handler_postGPS(req, res) {
-  let body = req.body || {}
-  console.log(body)
-  console.log("post request gotten")
+  const lon = parseFloat(req.query.longitude);
+  const lat = parseFloat(req.query.latitude);
 
-  if (typeof body.longitude === 'number') {
-    longitude = body.longitude
+  console.log(req.query);
+  console.log("post request gotten");
+
+  if (!isNaN(lon)) {
+    longitude = lon;
   }
 
-  if (typeof body.latitude === 'number') {
-    latitude = body.latitude
+  if (!isNaN(lat)) {
+    latitude = lat;
   }
 
-  res.json({ status: "GPS data updated" })
+  res.json({ status: "GPS data updated" });
 }
 
 // Listeners //
