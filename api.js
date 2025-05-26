@@ -10,13 +10,13 @@ let latitude = 0;
 api.use(express.json());
 
 api.get('/get-gps', async (req, res) => {
-  console.log("GET Request")
+  console.log(new Date().toISOString(), "GET Request")
   console.log({ longitude, latitude })
   res.json({ longitude, latitude });
 });
 
 api.post('/post-gps', async (req, res) => {
-  console.log("POST Request")
+  console.log(new Date().toISOString(), "POST Request")
   const lon = parseFloat(req.query.longitude);
   const lat = parseFloat(req.query.latitude);
   console.log(lon)
