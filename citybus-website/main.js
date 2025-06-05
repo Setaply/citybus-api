@@ -149,6 +149,13 @@ function updateNearestBusDistance() {
   });
 }
 
+function simulateBusMovement() {
+  let [lat, lon] = [50.67966 + (Math.random() - 0.5) * 0.0002, 9.76727 + (Math.random() - 0.5) * 0.0002];
+
+  changeBusPos(lon, lat);
+}
+
 startWatchingUserPosition();
-cyclePos();
+//cyclePos();
 setInterval(updateNearestBusDistance, 1000);
+setInterval(simulateBusMovement, 1000)
